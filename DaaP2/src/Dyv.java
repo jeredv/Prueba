@@ -14,6 +14,7 @@ public class Dyv {
 		entrada[4]=137;
 		entrada[5]=237;
 		boolean[] sol=digitosComunesDYV(entrada,0,entrada.length-1);
+	//	boolean[] sol=digitosComunesITE(entrada);
 		for(int i=0;i<sol.length;i++){
 			System.out.print("   "+i+"->");
 			if(sol[i]){
@@ -60,6 +61,33 @@ public class Dyv {
 		
 		
 	}
+	
+	public static boolean[] digitosComunesITE( int[] v ){
+	
+		boolean[] sol=new boolean[10];
+		for(int i=0;i<sol.length;i++){
+			sol[i]=true;
+		}
+		int aux;
+		for(int i=0;i<sol.length;i++){
+			for(int j=0;j<v.length;j++){
+				aux=v[j];
+				while(aux>9 && aux%10!=i){
+					aux/=10;
+				}
+				if(aux%10!=i){
+					sol[i]=false;
+				}
+			}
+		}
+		
+		
+		return sol;
+	}
+	
+	
+	
+	
 	
 	
 
